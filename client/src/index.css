@@ -1,0 +1,23 @@
+body {
+  text-align: center;
+}
+.dropzone-div {
+  text-align: center;
+  padding: 20px;
+  border: 3px purple dashed;
+  width: 60%;
+  margin: auto;
+}
+.file-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 65%;
+  margin: 20px auto;
+  padding: 10px;
+  border: 3px dotted black;
+}
+.file-list img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
