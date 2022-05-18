@@ -1,0 +1,16 @@
+.single-article{
+  width: 100%;
+  padding: 5px;
+  background-color: orange;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+nav button{
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}

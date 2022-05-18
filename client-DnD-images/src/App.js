@@ -1,15 +1,14 @@
 import React, { useCallback, useState } from "react";
-import Dropzone from "./components/Dropzone";
 import cuid from "cuid";
 import "./App.css";
+
+import Dropzone from "./components/Dropzone";
 import ImageList from "./components/ImageList";
+
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import update from "immutability-helper";
 
-require('react-dom');
-window.React2 = require('react');
-console.log('test', window.React1 === window.React2);
 
 export default function App() {
   const [images, setImages] = useState([]);

@@ -1,0 +1,13 @@
+.single-list-container{
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: rgb(149, 149, 251);
+  padding-bottom: 20px;
+}
+.task-list-container{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px;
+}
