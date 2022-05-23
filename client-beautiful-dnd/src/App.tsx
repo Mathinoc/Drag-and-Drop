@@ -2,35 +2,53 @@ import "./App.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState, useRef, useEffect } from 'react';
 import List from "./components/List";
+import { DragDropContext } from "react-beautiful-dnd";
 
-function App() {
-  const [taskList, setTaskList] = useState<string[]>(['hello', 'bye']);
-const creationField = useRef<HTMLInputElement | null>(null);
-
-function createTask(event: any){
-  event.preventDefault();
-  setTaskList(prev => [...prev, creationField.current!.value]);
+export interface taskType {
+  id: number,
+  task: string,
+  isAccomplished: boolean
 }
 
-useEffect(()=> {
-  creationField.current!.value = '';
-}, [taskList])
+function App() {
+  const [taskList, setTaskList] = useState<taskType[]>([{id:Date.now(), task:'hello', isAccomplished: false}]);
+  const [completedTodos, setCompletedTodos] = useState<taskType[]>([])
+  const creationField = useRef<HTMLInputElement | null>(null);
+
+
+  useEffect(() => {
+    creationField.current!.value = '';
+  }, [taskList])
+  function createTask(event: any) {
+    event.preventDefault();
+    setTaskList(prev => [...prev, {id: Date.now(),task: creationField.current!.value, isAccomplished: false}]);
+  }
 
   return (
-    <div className="App">
-      <h1>Task Manager</h1>
-      <div className="task-creation-container">
-        <form onSubmit={(e) => createTask(e)} >
-          <input ref={creationField} placeholder="Create task..." />
-          <button type='submit'>Create</button>
-        </form>
-      </div>
-      <div className="global-list-container" >
-        <List title={"Todo"} taskList={taskList} />
-        <List title={"Accomplished"} taskList={taskList} />
-      </div>
+    <DragDropContext onDragEnd={() => { }}>
+      <div className='flex-col space-y-5 min-h-screen bg-gradient-to-r from-color1 to-color2'>
+        <h1 className='font-bold text-center py-4 text-2xl' >Task Manager</h1>
+        <div className="text-center">
+          <form onSubmit={(e) => createTask(e)} className='flex-center space-x-4' >
+            <input ref={creationField} placeholder="Create task..." className='shadow border rounded py-2 px-3 w-full max-w-xs' />
+            <button type='submit' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Create</button>
+          </form>
+        </div>
+        <div className='flex justify-center gap-x-10' >
+          <List
+            title={"Todo"}
+            list={taskList}
+            setList={setTaskList}
 
-    </div>
+          />
+          {/* <List
+            title={"Accomplished"}
+            list={completedTodos}
+            setList={setCompletedTodos} /> */}
+        </div>
+
+      </div>
+    </DragDropContext>
   );
 }
 
