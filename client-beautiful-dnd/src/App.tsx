@@ -15,7 +15,7 @@ function App() {
   const [completedTodos, setCompletedTodos] = useState<taskType[]>([])
   const creationField = useRef<HTMLInputElement | null>(null);
 
-
+console.log(taskList)
   useEffect(() => {
     creationField.current!.value = '';
   }, [taskList])

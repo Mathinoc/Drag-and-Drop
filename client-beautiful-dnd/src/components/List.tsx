@@ -7,10 +7,10 @@ import { taskType } from '../App';
 export default function List({ title, list, setList }: { title: string, list: taskType[], setList:React.Dispatch<React.SetStateAction<taskType[]>> }) {
   return (
     <div className='w-full max-w-xs bg-slate-400 rounded-xl p-4' >
-      <Droppable droppableId='title' key='title' >
+      <Droppable droppableId={title} >
         {
           (provided) => (
-            <div ref={provided.innerRef} {...provided.droppableProps}>
+            <div ref={provided.innerRef} {...provided.droppableProps} >
               <h2 className='pl-2 mb-2 font-bold' >{title}</h2>
               <div className='flex-column space-y-2' >
                 {list.map((task, index) => {
