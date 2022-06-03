@@ -47,15 +47,15 @@ console.log(taskList)
       complete.splice(source.index, 1);
     }
     if (destination.droppableId === "Accomplished") {
-      console.log("here")
+      //console.log("here")
       active.splice(destination.index, 0, add);
-      console.log('active add', active)
+      //console.log('active add', active)
     } else {
-      console.log("not here 2")
+      //console.log("not here 2")
       complete.splice(destination.index, 0, add);
     }
-    console.log(complete)
-    console.log('active', active)
+    //console.log(complete)
+    //console.log('active', active)
     setCompletedTodos(complete);
     setTaskList(active);
   }
