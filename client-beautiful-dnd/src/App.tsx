@@ -35,27 +35,18 @@ console.log(taskList)
     }
     let add, active = [...taskList], complete = [...completedTodos];
     if (source.droppableId === "Todo") {
-      console.log('here')
-      console.log('source.index', source.index)
       add = active[source.index];
-      console.log('add', add)
-      active.splice(source.index, 1); // not working ?
+      active.splice(source.index, 1);
       setTimeout( () => {console.log('active should be empty', active)}, 1000)
     } else {
-      console.log("not here 1")
       add = complete[source.index];
       complete.splice(source.index, 1);
     }
     if (destination.droppableId === "Accomplished") {
-      console.log("Accomplished")
-      active.splice(destination.index, 0, add);
-      //console.log('active add', active)
-    } else {
-      //console.log("not here 2")
       complete.splice(destination.index, 0, add);
+    } else {
+      active.splice(destination.index, 0, add);
     }
-    console.log(complete)
-    //console.log('active', active)
     setCompletedTodos(complete);
     setTaskList(active);
   }
