@@ -10,7 +10,7 @@ export default function List({ title, list, setList }: { title: string, list: ta
       <Droppable droppableId={title} >
         {
           (provided, snapshot) => (
-              <div ref={provided.innerRef} {...provided.droppableProps} className={`${snapshot.isDraggingOver && 'bg-slate-500'} w-full max-w-xs bg-slate-400 rounded-xl p-4 h-fit`}>
+              <div ref={provided.innerRef} {...provided.droppableProps} className={`${snapshot.isDraggingOver && 'bg-slate-300'} w-full max-w-xs bg-slate-400 rounded-xl p-4 h-fit`}>
                 <h2 className='pl-2 mb-2 font-bold' >{title}</h2>
                 <div className='flex-column space-y-2' >
 
