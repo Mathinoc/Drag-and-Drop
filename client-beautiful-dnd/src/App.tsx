@@ -15,7 +15,6 @@ function App() {
   const [completedTodos, setCompletedTodos] = useState<taskType[]>([])
   const creationField = useRef<HTMLInputElement | null>(null);
 
-console.log(taskList)
   useEffect(() => {
     creationField.current!.value = '';
   }, [taskList])
@@ -26,7 +25,6 @@ console.log(taskList)
 
   function onDragEnd (result: DropResult) {
     const { source, destination } = result;
-    console.log(source, destination)
     if (!destination) {
       return
     }
