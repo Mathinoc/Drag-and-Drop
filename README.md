@@ -3,14 +3,13 @@
 In this repository, you can find 3 different applications to implement a drag and drop feature in a react application in 3 different ways:
 - client-DnD-images: react + react-dnd library
 - client-beautiful-dnd: react + react-beautiful-dnd library
-- client-CSS: react + CSS animation
+- client-CSS: react + CSS
 
 ## Main takeaways
 
 1. react-dnd
 2. react-beautiful-dnd
-3. 
-
+3. CSS
 
 ## Getting started
 
