@@ -5,8 +5,14 @@ In this repository, you can find 3 different applications to implement a drag an
 - client-beautiful-dnd: react + react-beautiful-dnd library
 - client-CSS: react + CSS animation
 
-## Getting Started
+## Main takeaways
 
+1. react-dnd
+2. react-beautiful-dnd
+3. 
+
+
+## Getting started
 
 1. Fork this repo and CLone a copy on your local machine
 
