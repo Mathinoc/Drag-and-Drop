@@ -3,29 +3,40 @@ import React from 'react';
 import '../App.css';
 
 export default function Board(props) {
-
-  //function dropCard(e) {
-    //e.preventDefault();
-    //! can select element based on class "dragging" instead of using getData.
-    //const cardId = e.dataTransfer.getData('cardId');
-    //const card = document.getElementsByClassName('dragging')[0];
-    //card!.classList.remove('dragging');
-    //console.log(card)
-    //e.target.appendChild(card);
-    //console.log('drop')
-  // }
   
   function onDragOver(e) {
     e.preventDefault();
+    const container = document.querySelector(`#${props.id}`)
+    console.log(props.id, container, e.clientY)
+    const afterElement = getDragAfterElement(container, e.clientY);
+    //console.log(afterElement);
     const card = document.querySelector('.dragging');
-    e.target.appendChild(card);
+    if (afterElement === null) {
+      e.target.appendChild(card);
+    } else {
+      container?.insertBefore(card, afterElement)
+    }
+  }
+
+  function getDragAfterElement (container, y) {
+    const allCards = [...container.querySelectorAll('.card:not(.dragging)')];
+    return allCards.reduce((closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height/2;
+      //console.log(offset);
+      if (offset < 0 && offset > closest.offset) {
+        return {offset: offset, element: child}
+      } else {
+        return closest
+      }
+    }, {offset: Number.NEGATIVE_INFINITY}).element;
+
   }
 
   return (
     <div
       id={props.id}
       className="board"
-      // onDrop={dropCard}
       onDragOver={onDragOver}
     >
       {props.children}

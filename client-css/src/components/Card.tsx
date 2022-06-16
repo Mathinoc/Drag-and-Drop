@@ -17,13 +17,6 @@ export default function Card(props) {
 
   function onDragOver(e) {
     e.stopPropagation();
-    // const target = e.target;
-    // target.classList.remove('dragging');
-    // console.log('over')
-  }
-  function onDrop(e) {
-    // const card = document.getElementsByClassName('dragging')[0];
-    // card!.classList.remove('dragging');
   }
   function onDragEnd(e) {
     e.stopPropagation();
@@ -36,8 +29,9 @@ export default function Card(props) {
       id={props.id}
       className="card"
       draggable={props.draggable}
+      droppable='false'
       onDragStart={onDragStart}
-      onDragOver={onDragOver}
+      //onDragOver={onDragOver}
       onDragEnd={onDragEnd}
     >
       {props.children}
