@@ -4,25 +4,25 @@ import '../App.css';
 
 export default function Card(props) {
 
-  function cardDragStart(e) {
+  function onDragStart(e) {
     const target = e.target;
-    e.dataTransfer.setData('cardId', target.id);
-
+    //e.dataTransfer.setData('cardId', target.id);
     setTimeout(() => {
-      target.style.display = 'none';
+      target.classList.add('dragging');
     }, 0);
   }
 
-  function dragCardOver(e) {
+  function onDragOver(e) {
     e.stopPropagation();
+    console.log('over');
   }
   return (
     <div
       id={props.id}
       className="card"
       draggable={props.draggable}
-      onDragStart={cardDragStart}
-      onDragOver={dragCardOver}
+      onDragStart={onDragStart}
+      onDragOver={onDragOver}
     >
       {props.children}
     </div>

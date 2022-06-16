@@ -6,14 +6,21 @@ export default function Board(props) {
 
   function dropCard(e) {
     e.preventDefault();
-    const cardId = e.dataTransfer.getData('cardId');
-    const card = document.getElementById(cardId);
-    card!.style.display = 'block';
+    //! can select element based on class "dragging" instead of using getData.
+    //const cardId = e.dataTransfer.getData('cardId');
+    const card = document.getElementsByClassName('dragging')[0];
+    card!.classList.remove('dragging');
     e.target.appendChild(card)
   }
-
-  function dragCard(e) {
+  
+  function onDragOver(e) {
     e.preventDefault();
+    const cardId = e.dataTransfer.getData('cardId');
+    //const card = document.getElementById(cardId);
+    const card = document.getElementsByClassName('dragging')[0];
+    // console.log('card',card)
+    //console.log('target',e.target.classList[0])
+    e.target.appendChild(card)
 
   }
 
@@ -22,7 +29,7 @@ export default function Board(props) {
       id={props.id}
       className="board"
       onDrop={dropCard}
-      onDragOver={dragCard}
+      onDragOver={onDragOver}
     >
       {props.children}
     </div>

@@ -18,6 +18,12 @@ function App() {
           <Card id="card-two" draggable="true">
             <p>Card two</p>
           </Card>
+          <Card id="card-three" draggable="true">
+            <p>Card three</p>
+          </Card>
+          <Card id="card-four" draggable="true">
+            <p>Card four</p>
+          </Card>
         </Board>
       </main>
     </div>

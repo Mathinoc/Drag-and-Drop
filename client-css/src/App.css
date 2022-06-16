@@ -16,13 +16,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width:200px;
+  gap:20px;
+  min-width:200px;
   padding: 20px 0;
-  height:200px;
+  min-height:200px;
 }
 
 .card{
   background-color: rgb(230, 159, 53);
   width:90%;
-
+}
+.dragging {
+  opacity: 0.4;
 }
