@@ -6,25 +6,17 @@ import Board from './components/Board';
 import Card from './components/Card';
 
 function App() {
+
+
+  const cardListOne = ['one', 'two', 'three', 'four'];
+  const cardListTwo = ['five', 'siw', 'seven', 'eight'];
+
+
   return (
     <div className="App">
       <main className="board-container">
-        <Board id="board-one">
-          <Card id="card-one" draggable="true">
-            <p>Card one</p>
-          </Card>
-        </Board>
-        <Board id="board-two">
-          <Card id="card-two" draggable="true">
-            <p>Card two</p>
-          </Card>
-          <Card id="card-three" draggable="true">
-            <p>Card three</p>
-          </Card>
-          <Card id="card-four" draggable="true">
-            <p>Card four</p>
-          </Card>
-        </Board>
+        <Board id="board-one" cardList={cardListOne} />
+        <Board id="board-two" cardList={cardListTwo} />
       </main>
     </div>
   );

@@ -1,20 +1,21 @@
 //@ts-nocheck
 import React from 'react';
 import '../App.css';
+import Card from './Card';
 
 export default function Board(props) {
   
   function onDragOver(e) {
     e.preventDefault();
     const container = document.querySelector(`#${props.id}`)
-    console.log(props.id, container, e.clientY)
+    //console.log(props.id, container, e.clientY)
     const afterElement = getDragAfterElement(container, e.clientY);
     //console.log(afterElement);
     const card = document.querySelector('.dragging');
     if (afterElement === null) {
       e.target.appendChild(card);
     } else {
-      container?.insertBefore(card, afterElement)
+      container?.insertBefore(card, afterElement);
     }
   }
 
@@ -33,13 +34,17 @@ export default function Board(props) {
 
   }
 
+
   return (
     <div
       id={props.id}
       className="board"
       onDragOver={onDragOver}
     >
-      {props.children}
+      {props.cardList.map(card => (
+        <Card card={card} />
+      ))}
+
     </div>
   )
 }

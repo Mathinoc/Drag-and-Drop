@@ -1,6 +1,7 @@
 //@ts-nocheck
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../App.css';
+import DragHandle from './DragHandle';
 
 export default function Card(props) {
 
@@ -9,9 +10,7 @@ export default function Card(props) {
     //e.dataTransfer.setData('cardId', target.id);
     setTimeout(() => {
       target.classList.add('dragging');
-      console.log(target)
     }, 0);
-
     console.log('start')
   }
 
@@ -23,18 +22,31 @@ export default function Card(props) {
     const target = e.target;
     target.classList.remove('dragging');
     console.log('over')
+    target.setAttribute('draggable', 'false')
   }
+
+
+  useEffect(() => {
+    // window.addEventListener("file-upload", callback);
+
+    // return () => window.removeEventListener("file-upload", callback);
+  }, [window]);
+
+
+
   return (
     <div
-      id={props.id}
+      id={props.card}
       className="card"
-      draggable={props.draggable}
+      //draggable={props.draggable}
       droppable='false'
       onDragStart={onDragStart}
       //onDragOver={onDragOver}
       onDragEnd={onDragEnd}
+      onMouseUp={console.log('uuuuuuuuppppppp')}
     >
-      {props.children}
+      <p> {props.card} </p>
+      <DragHandle id={props.card} />
     </div>
   )
 }
